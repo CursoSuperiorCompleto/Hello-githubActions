@@ -1,38 +1,35 @@
-name: ContinuousIntegration
-
-on:
-  pull_request:
-    branches: [main]
-
-jobs:
-  build:
+--- 
+jobs: 
+  build: 
     runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-
-    # Set up Python 3.6 environment
-    - name: Set up Python 3.9
-      uses: actions/setup-python@v1
-      with:
-        python-version: "3.9"
-
-    # Install dependencies
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-
-    # Run our unit tests
-    - name: Run unit tests
-      run: |
-        flask run --host 0.0.0.0
-
-  homolog-check:
-    runs-on: ubuntu-latest
-    environment:
+    steps: 
+      - 
+        uses: actions/checkout@v2
+      - 
+        name: "Set up Python 3.9"
+        uses: actions/setup-python@v1
+        with: 
+          python-version: "3.9"
+      - 
+        name: "Install dependencies"
+        run: |
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
+      - 
+        name: "Run unit tests"
+        run: "flask run --host 0.0.0.0\n"
+  homolog-check: 
+    environment: 
       name: homolog
-      url: 'your-application-here.com'
+      url: your-application-here.com
     needs: build
-    steps:
-      - name: Run hey there
-        run: echo "Hey, there!"
+    runs-on: ubuntu-latest
+    steps: 
+      - 
+        name: "Run hey there"
+        run: "echo \"Hey, there!\""
+name: ContinuousIntegration
+true: 
+  pull_request: 
+    branches: 
+      - main
