@@ -1,35 +1,21 @@
---- 
-jobs: 
-  build: 
-    runs-on: ubuntu-latest
-    steps: 
-      - 
-        uses: actions/checkout@v2
-      - 
-        name: "Set up Python 3.9"
-        uses: actions/setup-python@v1
-        with: 
-          python-version: "3.9"
-      - 
-        name: "Install dependencies"
-        run: |
-            python -m pip install --upgrade pip
-            pip install -r requirements.txt
-      - 
-        name: "Run unit tests"
-        run: "flask run --host 0.0.0.0\n"
-  homolog-check: 
-    environment: 
-      name: homolog
-      url: your-application-here.com
-    needs: build
-    runs-on: ubuntu-latest
-    steps: 
-      - 
-        name: "Run hey there"
-        run: "echo \"Hey, there!\""
 name: ContinuousIntegration
-true: 
-  pull_request: 
-    branches: 
-      - main
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+  homolog-check:
+    runs-on: ubuntu-latest
+    environment:
+      name: homolog
+      url: 'your-application-here.com'
+    needs: build
+    steps:
+      - name: Run hey there
+        run: echo "Hey, there!"
