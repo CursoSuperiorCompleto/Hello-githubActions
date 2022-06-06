@@ -10,12 +10,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-  homolog-check:
-    runs-on: ubuntu-latest
-    environment:
-      name: homolog
-      url: 'your-application-here.com'
-    needs: build
-    steps:
-      - name: Run hey there
-        run: echo "Hey, there!"
+  # homolog-check:
+  #   runs-on: ubuntu-latest
+  #   environment:
+  #     name: homolog
+  #     url: 'your-application-here.com'
+  #   needs: build
+  #   steps:
+  #     - name: Run hey there
+  #       run: echo "Hey, there!"
