@@ -1,0 +1,14 @@
+name: My Workflow
+
+on:
+  push:
+    branches: [feature/docker]
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Build image
+        run: docker build -t felipeleonardo/flask-app:$(echo ${GITHUB_SHA} | cut -c1-8) .
+  

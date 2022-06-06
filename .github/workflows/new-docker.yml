@@ -1,0 +1,22 @@
+name: NewDocker
+
+on:
+  push:
+    branches: [feature/docker]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Print Hello World
+      run: echo "Hello World"
+    
+    - name: Opa
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+        image: docker-hub-repo/image-name
+        registry: docker.io
+        username: ${{ secrets.DOCKER_HUB_USER }}
+        password: ${{ secrets.DOCKER_HUB_PASSWORD }}
