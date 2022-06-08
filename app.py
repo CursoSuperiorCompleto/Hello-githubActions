@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/docker")
 def hello_world():
-    return "<p> Hey, I'm Docker! It's a pleasure </p>"
+    return "<p> HEY, MY NAME IS DOCKER! </p>"
 
 @app.route("/python")
 def who_am_i():
@@ -12,4 +12,4 @@ def who_am_i():
 
 @app.route("/spark")
 def get_users():
-    return "<h1> Hahah, i'm the BEST! </h1>"
+    return "<h1> WHAT'S UP, GUYS? I'M SPARK! </h1>"
