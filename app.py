@@ -2,14 +2,14 @@ from flask import Flask
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/docker")
 def hello_world():
-    return "<p> Hey, there! What's up dude? </p>"
+    return "<p> Hey, I'm Docker! It's a pleasure </p>"
 
-@app.route("/application")
+@app.route("/python")
 def who_am_i():
-    return "<h1> I AM A FLASK APPLICATION! </h1>"
+    return "<h1> HEEEEEEEEEEEEEEEEEEEEEY, DO YOU ALREADY KNOW ME?? </h1>"
 
-@app.route("/users")
+@app.route("/spark")
 def get_users():
-    return "<h1> Imagine a json returning right here! </h1>"
+    return "<h1> Hahah, i'm the best! </h1>"
