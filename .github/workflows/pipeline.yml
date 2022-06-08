@@ -5,7 +5,7 @@ on:
     branches: [feature/docker]
 
 jobs:
-  build:
+  go:
     runs-on: ubuntu-latest
     steps:
       - name: Repository Checkout
@@ -18,7 +18,8 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
           image: felipeleonardo/flask-app
-          tags: ${GITHUB_SHA::8}
+          #tags: ${GITHUB_SHA::8}
+          tags: latest
           registry: docker.io
           username: ${{ secrets.DOCKER_HUB_USER }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
