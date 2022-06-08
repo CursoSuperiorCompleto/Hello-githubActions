@@ -1,7 +1,7 @@
 name: Versioning Container
 
 on:
-  pull_request:
+  push:
     branches: [feature/docker]
 
 jobs:
