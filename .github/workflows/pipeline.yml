@@ -2,7 +2,7 @@ name: Versioning Container
 
 on:
   push:
-    branches: [feature/docker]
+    branches: [gcp/*]
 
 jobs:
   go:
@@ -11,14 +11,10 @@ jobs:
       - name: Repository Checkout
         uses: actions/checkout@v2
 
-      - name: Print Commit HASH
-        run: echo $(shell git log -1 --format=%h)
+      - name: is GCP
+        if: github.ref == 'refs/heads/gcp/*'
+        run: echo "Eu sou GCP"
       
-      - name: Opa
-        uses: mr-smithers-excellent/docker-build-push@v5
-        with:
-          image: felipeleonardo/flask-app
-          tags: $(echo ${GITHUB_SHA} | cut -c1-8)
-          registry: docker.io
-          username: ${{ secrets.DOCKER_HUB_USER }}
-          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+      - name: is AWS
+        if: github.ref == 'refs/heads/aws/*'
+        run: echo "Eu sou AWS"
