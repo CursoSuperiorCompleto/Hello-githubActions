@@ -1,26 +1,28 @@
 name: Versioning Container
-
-on:
+'on':
   push:
-    branches: [gcp/*]
-
+    branches:
+      - gcp/*
 jobs:
   junior_push:
     runs-on: ubuntu-latest
     steps:
       - name: Repository Checkout
         uses: actions/checkout@v2
-
       - name: Lint with flake8
-      run: |
-        # stop the build if there are Python syntax errors or undefined names
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        run: >
+          # stop the build if there are Python syntax errors or undefined names
+
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+
+          # exit-zero treats all errors as warnings. The GitHub editor is 127
+          chars wide
+
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127
+          --statistics
       - name: Test with pytest
         run: |
           pytest
-      
   gcp-check:
     runs-on: ubuntu-latest
     environment:
@@ -29,4 +31,23 @@ jobs:
     needs: junior_push
     steps:
       - name: Senior check
-        run: echo "Ok, aceito"
+        run: 'echo "Ok, aceito"'
+  run_image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Checkout again
+        uses: actions/checkout@v2
+      - name: Lint with flake8 again
+        run: >
+          # stop the build if there are Python syntax errors or undefined names
+
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+
+          # exit-zero treats all errors as warnings. The GitHub editor is 127
+          chars wide
+
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127
+          --statistics
+      - name: Test with pytest again
+        run: |
+          pytest
