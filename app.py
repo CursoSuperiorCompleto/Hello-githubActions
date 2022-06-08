@@ -12,4 +12,4 @@ def who_am_i():
 
 @app.route("/spark")
 def get_users():
-    return "<h1> Hahah, i'm the best! </h1>"
+    return "<h1> Hahah, i'm the BEST! </h1>"

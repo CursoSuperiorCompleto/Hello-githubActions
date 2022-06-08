@@ -19,7 +19,7 @@ jobs:
         with:
           image: felipeleonardo/flask-app
           #tags: ${GITHUB_SHA::8}
-          tags: latest
+          tags: $(echo ${GITHUB_SHA} | cut -c1-8)
           registry: docker.io
           username: ${{ secrets.DOCKER_HUB_USER }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
