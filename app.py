@@ -10,6 +10,6 @@ def hello_world():
 def who_am_i():
     return "<h1> HEEEEEEEEEEEEEEEEEEEEEY, DO YOU ALREADY KNOW ME?? </h1>"
 
-@app.route("/spark")
+@app.route("/friends")
 def get_users():
-    return "<h1> WHAT'S UP, GUYS? I'M SPARK! </h1>"
+    return "<h1> Adilton, Andre, Diego e Marconi </h1>"
