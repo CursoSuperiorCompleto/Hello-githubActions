@@ -12,4 +12,4 @@ def who_am_i():
 
 @app.route("/friends")
 def get_users():
-    return "<h1> Adilton, Andre, Diego e Marconi </h1>"
+    return "<h1> Adilton, Andre, Diego, Marconi, Kayo e Plabo </h1>"
