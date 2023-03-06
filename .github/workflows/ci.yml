@@ -1,4 +1,4 @@
-name: ContinuousIntegration
+name: ContinuousIntegrationTeste
 
 on:
   push:
