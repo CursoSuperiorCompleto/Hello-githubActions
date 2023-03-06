@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/hering")
 def hello_world():
-    return "<p> Fellipe Fernandes and Lucas França! </p>"
+    return "<p> Fellipe Fernandes and LUCAS FRANÇA E FELIPE FERRAZ! </p>"
 
 @app.route("/arcellor")
 def who_am_i():
